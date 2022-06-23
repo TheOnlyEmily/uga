@@ -20,7 +20,7 @@ TODO
     - algorithms
     - fitness_functions 
 - Each BGA subsection contains a collection of code relating to a specific algorithm or step in that algorithm. 
-- The contents of a subsection are divided up by how they behave. 
+- The contents of a subsection are divided up by how the implement the general behaviour associated with each subsection. 
 - It is possible to implement a simple genetic algorithm without using code from outside of BGA:
     ```
     from bga.selectors.tournament import create_tournament_selector
