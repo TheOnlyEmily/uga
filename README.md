@@ -24,16 +24,17 @@ TODO
 - It is possible to implement a simple genetic algorithm without using code from outside of BGA:
     ```
     from bga.selectors.tournament import create_tournament_selector
-    from bga.genetic_operators.single_point import create_single_point_mutator, create_single_point_crossover
+    from bga.genetic_operators.single_point import create_single_point_crossover
+    from bga.genetic_operators.xover_based_mutator import create_xover_based_mutator
     from bga.generators import create_int_list_generator
-    # a transcriptor will not be necessary here, see bga/transcriptors/docs for more information
+    # a transcriptor will not be necessary here, see bga/examples/genetic_programming for examples
     from bga.algorithms import create_simple_mutator_algorithm
     from bga.fitness_functions import create_literal_fitness_function
 
     select = create_tournament_selector(size=3)
     generate = create_int_list_generator(size=4, min=1, max=5)
     cross = create_single_point_crossover(mask_size=4)
-    mutate = create_single_point_mutator(cross, generate)
+    mutate = create_xover_based_mutator(cross, generate)
     fitness_func = create_literal_fitness_function(seq=[1, 2, 3, 4])
 
     algo = create_simple_mutator_algorithm(
